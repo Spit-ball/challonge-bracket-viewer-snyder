@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  width: 300px;
+  padding: 10px;
+  border: 2px solid #3498db;
+  border-radius: 20px;
+  outline: none;
+  font-size: 16px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #27ae60;
+}
