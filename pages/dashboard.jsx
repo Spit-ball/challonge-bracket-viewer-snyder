@@ -118,7 +118,7 @@ function Dashboard(props) {
             />
           ))}
         </div>
-        {savedData.length > 0 && (
+        {savedData.length > 0 && ( //checks for length of savedData array before allowing a delete button to appear.
           <div>
             <button onClick={handleDelete}>Delete</button>
           </div>

@@ -45,20 +45,21 @@ const ChallongeCard = ({ topParticipants, tournamentName, user, savable }) => {
         <ul className={styles.participantList}>
           {topParticipants.map((participant) => (
             <li key={participant.seed} className={styles.participantItem}>
-              <p>
-                Place {participant.seed}: {participant.name}
-              </p>
+              <p className={styles.seed}>Place {participant.seed}</p>
+              <p className={styles.names}>{participant.name}</p>
             </li>
           ))}
         </ul>
       </div>
+
+      {/* there is probably a way to check savable state, user state, and saved state all at once, but I'm not sure how to do that. */}
       {savable && (
         <>
           {user ? (
             !saved ? (
               <button className={styles.saveButton} onClick={handleSave}>
                 Save
-              </button> // TODO: need to make this button disabled/disappearing if already saved...
+              </button> // TODO: need to make this button disabled/disappearing if already saved... getting lost in the operator weeds here.
             ) : (
               <p>Data saved!</p>
             )

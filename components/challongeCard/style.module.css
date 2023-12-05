@@ -1,12 +1,11 @@
 .card {
-  width: 300px;
+  width: 26rem;
   padding: 20px;
   border-radius: 10px;
   border: 1px solid #ddd;
   background-color: #6f0096;
   margin: 20px;
   text-align: center;
-  overflow: hidden;
 }
 
 .title {
@@ -32,7 +31,14 @@
 }
 
 .participantItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   line-height: 0.1rem;
   color: #fff;
   text-align: justify;
+}
+
+.names {
+  margin-right: 40px;
 }
