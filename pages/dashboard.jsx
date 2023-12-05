@@ -33,6 +33,36 @@ function Dashboard(props) {
 
   const [savedData, setSavedData] = useState([]);
 
+  const handleDelete = async () => {
+    try {
+      const userId = props.user?._doc?.username || props.user?.username; // Checking all these locations for the username because it changes depending on the context AGAIN.
+
+      if (!userId) {
+        console.error("User ID cannot be found.");
+        return;
+      }
+
+      const response = await fetch("/api/deleteSavedData", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId }), // Send userId in the request body so it can be accessed later.
+      });
+
+      if (response.ok) {
+        setSavedData(
+          savedData.filter((filteredData) => filteredData.userId !== userId) // filter out the data if its not the userId
+        );
+      } else {
+        const errorData = await response.json();
+        console.error("Failed to delete data", errorData);
+      }
+    } catch (error) {
+      console.error("Error deleting data:", error);
+    }
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       if (props.isLoggedIn) {
@@ -87,6 +117,9 @@ function Dashboard(props) {
               user={{ _doc: { username: entry.userId } }}
             />
           ))}
+        </div>
+        <div>
+          <button onClick={handleDelete}>Delete</button>
         </div>
         <div className={styles.grid}>
           <Link href="/" className={styles.card}>

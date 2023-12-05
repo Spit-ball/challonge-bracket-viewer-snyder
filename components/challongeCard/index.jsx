@@ -3,28 +3,6 @@ import Link from "next/link";
 import useLogout from "../../hooks/useLogout";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-/*
-export default function ChallongeCard({ topParticipants, tournamentName }) {
-  return (
-    <div className={styles.card}>
-      <h1 className={styles.title}>Top Participants of:</h1>
-      <h1 className={styles.subtitle}>{tournamentName}</h1>
-      <div className={styles.placement}>
-        <ul className={styles.participantList}>
-          {topParticipants.map((participant) => (
-            <li key={participant.seed} className={styles.participantItem}>
-              <p>
-                Place {participant.seed}: {participant.name}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-}
-
-*/
 
 const ChallongeCard = ({ topParticipants, tournamentName, user, savable }) => {
   const router = useRouter();
@@ -35,7 +13,7 @@ const ChallongeCard = ({ topParticipants, tournamentName, user, savable }) => {
   }, [topParticipants, tournamentName]); // triggered on re-render; only cares when value provided is updated.
 
   const handleSave = async () => {
-    const userId = user._doc.username;
+    const userId = user?._doc?.username || user?.username; // check both cases for user object without throwing an error here...should be in either location.
     const data = { userId, topParticipants, tournamentName };
     console.log("Saving data:", data);
 
@@ -80,7 +58,7 @@ const ChallongeCard = ({ topParticipants, tournamentName, user, savable }) => {
             !saved ? (
               <button className={styles.saveButton} onClick={handleSave}>
                 Save
-              </button>
+              </button> // TODO: need to make this button disabled/disappearing if already saved...
             ) : (
               <p>Data saved!</p>
             )

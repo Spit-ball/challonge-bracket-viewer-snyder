@@ -26,7 +26,7 @@ export default async function handler(req, res) {
 }
 
 
-// Originally had this implemented through finding directly from the model as shown below, but decided to use a GET request above for speed. It seemed a bit fast on load, at least on my windows machine, when I used the GET request.
+// Original Implementation is below.
 
 /*
 export default async function handler(req, res) {
