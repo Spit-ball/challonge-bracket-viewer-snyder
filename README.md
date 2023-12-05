@@ -30,7 +30,7 @@ Ensure you have the following installed on your machine:
 
 ### Cloning/Web Access
 
-Simply run ```git clone https://github.com/spit-ball/esports-bracket-viewer-snyder.git```
+Simply run ```git clone https://github.com/spit-ball/challonge-bracket-viewer-snyder.git```
 
 Be sure you're in the project directory in your terminal after cloning.
 
