@@ -12,11 +12,11 @@ export default async function handler(req, res) {
                 res.status(201).json({ success: true, data: savedInfo });
             } catch (error) {
                 console.error('Error saving data:', error);
-                res.status(400).json({ success: false, error: 'Internal Server Error: saveData.js' });
+                res.status(400).json({ success: false, error: 'Error: saveData.js' });
             }
             break;
         default:
-            res.status(400).json({ success: false, error: 'Method not supported' });
+            res.status(400).json({ success: false, error: 'Your GET Method is not supported' });
             break;
     }
 }
