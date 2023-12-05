@@ -118,9 +118,11 @@ function Dashboard(props) {
             />
           ))}
         </div>
-        <div>
-          <button onClick={handleDelete}>Delete</button>
-        </div>
+        {savedData.length > 0 && (
+          <div>
+            <button onClick={handleDelete}>Delete</button>
+          </div>
+        )}
         <div className={styles.grid}>
           <Link href="/" className={styles.card}>
             <h2>Home</h2>
