@@ -61,3 +61,5 @@ Current API Endpoints include /api/saveData, /api/getSavedData, /api/challongePa
 
 It's important to note that Chalange is moving from the standard V1 API to a V2 with more features, different endpoints, and much more flexible functionality in the future. As I'm writing this documentation, the app still works. However, if they decide to issue the API update between now and when you're seeing this, there may be some discrepancies in the endpoints as I'm expecting those to change as well.
 
+I also had to remove the previous repo due to several odd conflicts I couldn't make sense of. I was working from my MBP when I was not home and my Desktop machine at home, and somehow I ended up not being able to pull down the changes without tons of conflicts. Rather than lose my work thus far, I copied what I had on the machine with the latest data and reuploaded to this repo.
+
