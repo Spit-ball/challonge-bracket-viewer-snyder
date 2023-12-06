@@ -6,6 +6,9 @@ export default function Header(props) {
   const logout = useLogout();
   return (
     <header className={styles.container}>
+      <Link href="/" className={styles.homeText}>
+        Challonge Data Viewer
+      </Link>
       {props.isLoggedIn ? (
         <>
           <p>

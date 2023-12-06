@@ -8,32 +8,6 @@
   align-items: center;
 }
 
-.footer {
-  display: flex;
-  padding: 10px;
-  background-color: purple;
-  border-top: 1px solid #eaeaea;
-  justify-content: flex-end;
-  align-items: center;
-  height: 6rem;
-}
-
-.footer a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  margin-right: 4rem;
-}
-
-.footer a:not(:last-child) {
-  margin-right: 4rem;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
 .title a {
   color: #0070f3;
   text-decoration: none;
@@ -130,13 +104,6 @@
   margin-left: 0.5rem;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}
-
 .savedData {
   display: flex;
   flex: row;
@@ -177,6 +144,34 @@
 
 .howItWorks li {
   margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+/* This media query is just for iPad Pro. I was using the website on my ipad as a 2nd monitor and noticed some issues with the search page. */
+@media (max-width: 1366px) {
+  .usageInfo {
+    font-family: Garamond;
+    font-size: 1.2rem;
+    margin: 1rem 5rem 1rem 5rem;
+    text-align: justify;
+  }
+
+  .description {
+    font-size: 100px;
+    margin: 1rem 5rem 1rem 5rem;
+    line-height: 1.5;
+    font-size: large;
+  }
+
+  .howItWorks li {
+    margin: 1rem 5rem 1rem 5rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
