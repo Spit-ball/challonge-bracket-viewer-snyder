@@ -2,12 +2,15 @@
 
 The eSports Bracket Viewer is a web application that allows users to save and
 view Challonge.com tournament data without having to keep track of all the
-external links. This helps to save time and cut down efforts spent keeping track
-of your favorite tournaments or developing a power ranking system depending on
-the use case. This may be most useful for esports community organizations to
-leverage in their tournament result tracking efforts. However, general users may
-find this useful for keeping up with their own performances and may want to keep
-this on their radar for future updates.
+external links.
+
+This helps to save time and cut down efforts spent keeping track of your
+favorite tournaments or developing a power ranking system depending on the use
+case. This may be most useful for esports community organizations to leverage in
+their tournament result tracking efforts.
+
+However, general users may find this useful for keeping up with their own
+performances and may want to keep this on their radar for future updates.
 
 ## Table of Contents
 
@@ -24,13 +27,16 @@ this on their radar for future updates.
 
 ## Features
 
-- View top participants in eSports tournaments.
+- View top 3 participants in eSports tournaments.
 - Save/delete bracket information to/from the database.
-- User auth for a personalized dashboard experience.
+- User auth pre-included to allow for a personalized dashboard experience.
 
 ## Planned Updates
 
 - Front-end work
+- Increasing amount of tournament data pulled from API.
+  - Participant Specific Data (if possible)
+  - Match Data
 - Start.GG Integration
 - Optional API Route toggles for further info per tournament
 - Challonge Community Tournament support (currently, any
@@ -88,10 +94,19 @@ that day.
 
 ## API Endpoints
 
-Current API Endpoints include /api/saveData, /api/getSavedData,
-/api/challongeParticipants, and /api/challongeTournyInfo. Further endpoints may
-be included in the future as part of planned updates. If you have any requested
-features, let me know!
+Current API Endpoints include
+
+- `/api/deleteSavedData`
+- `/api/saveData`
+- `/api/getSavedData`
+- `/api/challongeParticipants`
+- `/api/challongeTournyInfo`.
+
+Further endpoints may be included in the future as part of planned updates. If
+you have any requested features, let me know!
+
+Endpoints may be consolidated into one switch-case in the future. I am keeping
+them separated for now for clarity and debugging purposes.
 
 ## Disclaimer
 
@@ -101,6 +116,11 @@ the future. As I'm writing this documentation, the app still works. However, if
 they decide to issue the API update between now and when you're seeing this,
 there may be some discrepancies in the endpoints as I'm expecting those to
 change as well.
+
+I was unable to find a projected date for this shift occuring in my research, so
+it could be tomorrow, it could be in the next 5 years, or anywhere in between.
+In any case, when the API shifts to V2, I will check into it and update the
+requests accordingly.
 
 I also had to remove the previous repo due to several odd conflicts I couldn't
 make sense of. I was working from my MBP when I was not home and my Desktop
