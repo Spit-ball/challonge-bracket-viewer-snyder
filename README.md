@@ -17,6 +17,7 @@ this on their radar for future updates.
   - [Planned Updates](#planned-updates)
     - [Prerequisites](#prerequisites)
     - [Cloning/Web Access](#cloningweb-access)
+      - [Finding Challonge API Key](#finding-challonge-api-key)
   - [Usage](#usage)
   - [API Endpoints](#api-endpoints)
   - [Disclaimer](#disclaimer)
@@ -60,6 +61,13 @@ directory with this information:
 `IRON_PASS=your_iron_session_pass`
 
 Finally, use the included script to run the dev server: `npm run dev`
+
+#### Finding Challonge API Key
+
+If you don't know your API Key, make sure to login to your account on
+[Challonge](https://challonge.com). Click on your profile image, and then visit
+"Settings". You will see an option on the left that says "Developer API", which
+will have your API Key inside, or request that you generate one.
 
 ## Usage
 
