@@ -43,6 +43,7 @@ function Dashboard(props) {
       }
 
       const response = await fetch("/api/deleteSavedData", {
+        // This request clears the entire page of saved data for a moment, even though the route in deleteSavedData.js is only for deleting one entry. When revisiting the dashboard page, the single entry is gone and the remaining entries are still there...unsure how to make it so that the single entry is deleted and the remaining entries are still there without having to refresh the page.
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +53,8 @@ function Dashboard(props) {
 
       if (response.ok) {
         setSavedData(
-          savedData.filter((filteredData) => filteredData.userId !== userId) // filter out the data if its not the userId
+          savedData.filter((filteredData) => filteredData.userId !== userId), // filter out the data if its not the userId
+          window.location.reload() // reload the page to show the changes??? causes a slight flicker...
         );
       } else {
         const errorData = await response.json();
