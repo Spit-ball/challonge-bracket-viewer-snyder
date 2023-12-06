@@ -1,0 +1,187 @@
+.main {
+  min-height: 75vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 4rem 1rem 4rem;
+}
+
+.title a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  margin: 4rem 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
+.card {
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  max-width: 350px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form > * {
+  margin-bottom: 10px;
+}
+
+.form > button {
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+.form > button:is(:hover, :focus, :active) {
+  color: #fafafa;
+  background-color: #222;
+}
+
+.card:is(:hover, :focus, :active) {
+  color: #0070f3;
+  border-color: #0070f3;
+}
+
+.card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.logo {
+  height: 1em;
+  margin-left: 0.5rem;
+}
+
+.savedData {
+  display: flex;
+  flex: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.usageInfo {
+  font-family: Garamond;
+  font-size: 1.2rem;
+  margin: 2rem 32rem 0.4rem 32rem;
+  text-align: justify;
+}
+
+.howItWorks {
+  font-family: Garamond;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+  text-align: justify;
+}
+
+.howItWorks h2 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.howItWorks p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.howItWorks ol {
+  margin-left: 2rem;
+}
+
+.howItWorks li {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+/* This media query is just for iPad Pro. I was using the website on my ipad as a 2nd monitor and noticed some issues with the search page. */
+@media (max-width: 1366px) {
+  .usageInfo {
+    font-family: Garamond;
+    font-size: 1.2rem;
+    margin: 1rem 5rem 1rem 5rem;
+    text-align: justify;
+  }
+
+  .description {
+    font-size: 100px;
+    margin: 1rem 5rem 1rem 5rem;
+    line-height: 1.5;
+    font-size: large;
+  }
+
+  .howItWorks li {
+    margin: 1rem 5rem 1rem 5rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card,
+  .footer {
+    border-color: #222;
+  }
+  .code {
+    background: #111;
+  }
+  .logo img {
+    filter: invert(1);
+  }
+}

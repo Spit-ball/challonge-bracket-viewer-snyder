@@ -18,11 +18,19 @@ export default function Searchbar({ onTopParticipants, onTournamentNameChange })
         }
     };
 
+    // Making enter key also count as button click for my searchbar
+
+    const handleEnterKey = (event) => {
+        if (event.key === 'Enter') {
+            handleButtonClick();
+        }
+    };
+
     const handleButtonClick = async () => {
         if (!tournamentCode) {
             alert("Please enter a valid tournament URL");
             return;
-        }
+        };
 
         try {
             const tournamentResponse = await fetch(`/api/challongeTournyInfo?tournamentCode=${tournamentCode}`, {
@@ -34,9 +42,9 @@ export default function Searchbar({ onTopParticipants, onTournamentNameChange })
 
             if (tournamentResponse.ok) {
                 const tournamentData = await tournamentResponse.json();
-                console.log('Challonge API Tournament Response Status:', tournamentResponse.status); 
-                console.log('Challonge API Tournament Response Data:', tournamentData); 
-                console.log('Challonge Tournament Name:', tournamentData.tournament.name); 
+                console.log('Challonge API Tournament Response Status:', tournamentResponse.status);
+                console.log('Challonge API Tournament Response Data:', tournamentData);
+                console.log('Challonge Tournament Name:', tournamentData.tournament.name);
 
                 setTournamentName(tournamentData.tournament.name);
                 onTournamentNameChange(tournamentData.tournament.name);
@@ -54,7 +62,7 @@ export default function Searchbar({ onTopParticipants, onTournamentNameChange })
                     console.log('Challonge API Participants Response Data:', participantsData);
 
                     // Filter and map the top 7 participants -- could change "seed" to "final_rank" if we want to use that instead and be more clear...
-                    const topParticipants = participantsData.filter(participant => participant.participant.final_rank >= 1 && participant.participant.final_rank <= 3).map(participant => ({
+                    const topParticipants = participantsData.filter(participant => participant.participant.final_rank >= 1 && participant.participant.final_rank <= 5).map(participant => ({
                         seed: participant.participant.final_rank,
                         name: participant.participant.name,
                     }))
@@ -79,7 +87,7 @@ export default function Searchbar({ onTopParticipants, onTournamentNameChange })
     return (
         <div className={styles.container}>
             <div>
-                <input className={styles.input} type="text" placeholder="Paste Your Tournament URL Here!" onChange={handleInputChange} />
+                <input className={styles.input} type="text" placeholder="Paste Your Tournament URL Here!" onChange={handleInputChange} onKeyDown={handleEnterKey} />
                 <button className={styles.button} type="button" onClick={handleButtonClick}>Send</button>
             </div>
         </div>

@@ -1,3 +1,5 @@
+// Need to combine the DELETE, POST, and GET cases into one file, but separated them here for easy testing / separation of concerns.
+
 import connection from '../../db/connection';
 import challongeSavedInfo from '../../db/models/challongeSavedInfo';
 

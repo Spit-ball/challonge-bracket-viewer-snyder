@@ -62,19 +62,7 @@ export default function Login(props) {
       <Header isLoggedIn={props.isLoggedIn} username={props?.user?.username} />
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to the <a href="https://nextjs.org">Next.js</a> Login Page!
-        </h1>
-
-        <p className={styles.description}>
-          Current Location: <code className={styles.code}>{router.asPath}</code>
-          <br />
-          Status:{" "}
-          <code className={styles.code}>
-            {!props.isLoggedIn && " Not"} Logged In
-          </code>
-        </p>
-
+        <h1 className={styles.title}>Login to Challonge Bracket Viewer!</h1>
         <form
           className={[styles.card, styles.form].join(" ")}
           onSubmit={handleLogin}

@@ -4,10 +4,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { withIronSessionSsr } from "iron-session/next";
 import sessionOptions from "../config/session";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/test.module.css";
 import Header from "../components/header";
 import useLogout from "../hooks/useLogout";
 import Footer from "../components/footer";
+import HomeFeatureBlurb from "../components/homeFeatureBlurb";
 
 export const getServerSideProps = withIronSessionSsr(
   async function getServerSideProps({ req }) {
@@ -41,7 +42,13 @@ export default function Home(props) {
       <Header isLoggedIn={props.isLoggedIn} username={props?.user?.username} />
 
       <main className={styles.main}>
-        <h1 className={styles.title}>An eSports Bracket Data Viewer</h1>
+        <div className={styles.hero}>
+          <h1 className={styles.title}>An eSports Bracket Data Viewer</h1>
+          {/* Image removed for now...styling concerns across pages
+          <Image />{" "}
+          required empty Image tag for the hero image to show up in correct sizing */}
+        </div>
+        <HomeFeatureBlurb />
       </main>
       <Footer />
     </div>

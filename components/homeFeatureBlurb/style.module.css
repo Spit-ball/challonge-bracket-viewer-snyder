@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10%;
+}
+
+.subContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.textContainer {
+  background-color: purple;
+  border-radius: 150px;
+  margin: 5% 5% 5% 55%;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 110%;
+  text-align: center;
+}
+
+.bodyText {
+  font-size: 1.5rem;
+  align-self: flex-start;
+}
+
+.card {
+  margin-top: -4%;
+  margin-right: 15%;
+}
+
+@media (max-width: 1500px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+  }
+
+  .textContainer {
+    margin: 5%;
+    width: 90%;
+  }
+
+  .card {
+    margin-top: 5%;
+    margin-right: 0;
+  }
+}
