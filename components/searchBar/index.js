@@ -62,7 +62,9 @@ export default function Searchbar({ onTopParticipants, onTournamentNameChange })
                     console.log('Challonge API Participants Response Data:', participantsData);
 
                     // Filter and map the top 7 participants -- could change "seed" to "final_rank" if we want to use that instead and be more clear...
-                    const topParticipants = participantsData.filter(participant => participant.participant.final_rank >= 1 && participant.participant.final_rank <= 5).map(participant => ({
+
+                    // TODO: ALSO NOTE: Challonge API returns MULTIPLE participants with the same seed if they are tied, so we need to filter out the duplicates...though I cannot get that working as of yet.
+                    const topParticipants = participantsData.filter(participant => participant.participant.final_rank >= 1 && participant.participant.final_rank <= 3).map(participant => ({
                         seed: participant.participant.final_rank,
                         name: participant.participant.name,
                     }))
