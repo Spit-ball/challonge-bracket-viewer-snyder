@@ -44,9 +44,9 @@ export default function Home(props) {
       <main className={styles.main}>
         <div className={styles.hero}>
           <h1 className={styles.title}>An eSports Bracket Data Viewer</h1>
-          {/* Image removed for now...styling concerns across pages
+          {/* Image removed for now...styling concerns across pages ... will implement a hero image later
           <Image />{" "}
-          required empty Image tag for the hero image to show up in correct sizing */}
+          */}
         </div>
         <HomeFeatureBlurb />
       </main>
