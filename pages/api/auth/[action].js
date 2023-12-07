@@ -40,6 +40,7 @@ async function logout(req, res) {
 }
 async function signup(req, res) {
   try {
+    console.log(process.env.MONGODB_URI)
     const { username, password } = req.body
     const {
       password: _,
