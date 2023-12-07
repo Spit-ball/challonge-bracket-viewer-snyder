@@ -43,8 +43,8 @@ export default function About(props) {
       <main className={styles.main}>
         <h1 className={styles.title}>About The App</h1>
         <p className={styles.description}>
-          Discover the power of my eSports Bracket Viewer - your ultimate solution
-          for managing tournament data from Challonge.com.
+          Discover the power of my eSports Bracket Viewer - your ultimate
+          solution for managing tournament data from Challonge.com.
         </p>
 
         <section className={styles.howItWorks}>
@@ -65,7 +65,9 @@ export default function About(props) {
             </li>
             <li>
               Watch as the app automatically aggregates top standings,
-              participant names, and the tournament name for your convenient access. Save all of your tournament data in one place! No more keeping track of multiple links all of the time!
+              participant names, and the tournament name for your convenient
+              access. Save all of your tournament data in one place! No more
+              keeping track of multiple links all of the time!
             </li>
           </ol>
         </section>
