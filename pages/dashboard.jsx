@@ -27,7 +27,7 @@ export const getServerSideProps = withIronSessionSsr(
   sessionOptions
 );
 
-function Dashboard(props) {
+function Dashboard({ isLoggedIn, user, saveRefreshing, setSaveRefreshing }) {
   const router = useRouter();
   const logout = useLogout();
 
@@ -35,7 +35,7 @@ function Dashboard(props) {
 
   const handleDelete = async () => {
     try {
-      const userId = props.user?._doc?.username || props.user?.username; // Checking all these locations for the username because it changes depending on the context AGAIN.
+      const userId = user?._doc?.username || user?.username; // Checking all these locations for the username because it changes depending on the context AGAIN.
 
       if (!userId) {
         console.error("User ID cannot be found.");
@@ -67,10 +67,8 @@ function Dashboard(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (props.isLoggedIn) {
-        const userId = props.user._doc
-          ? props.user._doc.username
-          : props.user.username; // Checking all these locations for the username because it changes depending on the context... weird
+      if (isLoggedIn) {
+        const userId = user._doc ? user._doc.username : user.username; // Checking all these locations for the username because it changes depending on the context... weird
 
         if (userId) {
           const response = await fetch(`/api/getSavedData?userId=${userId}`, {
@@ -88,11 +86,11 @@ function Dashboard(props) {
     };
     fetchData();
 
-    if (props.saveRefreshing) {
+    if (saveRefreshing) {
       fetchData();
-      props.setSaveRefreshing(false);
+      setSaveRefreshing(false);
     }
-  }, [props.isLoggedIn, props.user, props.saveRefreshing]);
+  }, [isLoggedIn, user, saveRefreshing, setSaveRefreshing]);
 
   return (
     <div className={styles.container}>
@@ -105,7 +103,7 @@ function Dashboard(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header isLoggedIn={props.isLoggedIn} username={props.user.username} />
+      <Header isLoggedIn={isLoggedIn} username={user.username} />
 
       <main className={styles.main}>
         <h1 className={styles.title}>An eSports Bracket Data Viewer</h1>
