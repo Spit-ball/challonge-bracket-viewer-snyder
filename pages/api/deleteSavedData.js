@@ -14,6 +14,9 @@ export default async function handler(req, res) {
                 if (!userId) {
                     return res.status(400).json({ success: false, error: 'Missing UserID from Body of Request' });
                 }
+
+                // TODO: implement a delete button in each card on the front end that deletes the data from that card only, so the user isn't forced to delete the first card they saved every time.
+
                 const deletedData = await ChallongeSavedInfo.deleteOne({ userId: userId }); // deletes data matching the userId ... still clears the entire page... not sure why.
                 res.status(200).json({ success: true, data: deletedData });
             } catch (error) {
