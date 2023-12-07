@@ -53,9 +53,9 @@ function Dashboard(props) {
 
       if (response.ok) {
         setSavedData(
-          savedData.filter((filteredData) => filteredData.userId !== userId), // filter out the data if its not the userId
-          window.location.reload() // reload the page to show the changes??? causes a slight flicker...
-        );
+          savedData.filter((filteredData) => filteredData.userId !== userId)
+        ); // filter out the data if its not the userId
+        window.location.reload(); // reload the page to show the changes??? causes a slight flicker...
       } else {
         const errorData = await response.json();
         console.error("Failed to delete data", errorData);
@@ -77,6 +77,7 @@ function Dashboard(props) {
             credentials: "include",
           });
           const data = await response.json();
+          console.log("Saved Data:", data);
           if (data.success) {
             setSavedData(data.data);
           } else {
@@ -86,7 +87,12 @@ function Dashboard(props) {
       }
     };
     fetchData();
-  }, [props.isLoggedIn, props.userId]);
+
+    if (props.saveRefreshing) {
+      fetchData();
+      props.setSaveRefreshing(false);
+    }
+  }, [props.isLoggedIn, props.user, props.saveRefreshing]);
 
   return (
     <div className={styles.container}>
@@ -103,12 +109,7 @@ function Dashboard(props) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>An eSports Bracket Data Viewer</h1>
-        <p>
-          Status:{" "}
-          <code className={styles.code}>
-            {!props.isLoggedIn && " Not"} Logged In
-          </code>
-        </p>
+
         <h2>Your Saved Data</h2>
         <div className={styles.savedData}>
           {savedData.map((entry) => (
@@ -116,6 +117,7 @@ function Dashboard(props) {
               key={entry._id}
               topParticipants={entry.topParticipants}
               tournamentName={entry.tournamentName}
+              tournamentURL={entry.tournamentURL}
               user={{ _doc: { username: entry.userId } }}
             />
           ))}
@@ -125,20 +127,6 @@ function Dashboard(props) {
             <button onClick={handleDelete}>Delete</button>
           </div>
         )}
-        <div className={styles.grid}>
-          <Link href="/" className={styles.card}>
-            <h2>Home</h2>
-            <p>Return to the homepage.</p>
-          </Link>
-          <div
-            onClick={logout}
-            style={{ cursor: "pointer" }}
-            className={styles.card}
-          >
-            <h2>Logout</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </div>
-        </div>
       </main>
 
       <Footer />

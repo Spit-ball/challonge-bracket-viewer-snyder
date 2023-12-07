@@ -33,6 +33,7 @@ export default function Search(props) {
 
   const [topParticipants, setTopParticipants] = useState([]);
   const [tournamentName, setTournamentName] = useState("");
+  const [tournamentURL, setTournamentURL] = useState("");
 
   const handleTopParticipants = (participants) => {
     setTopParticipants(participants);
@@ -40,6 +41,10 @@ export default function Search(props) {
 
   const handleTournamentName = (tournamentName) => {
     setTournamentName(tournamentName);
+  };
+
+  const handleTournamentURL = (tournamentURL) => {
+    setTournamentURL(tournamentURL);
   };
 
   return (
@@ -74,11 +79,13 @@ export default function Search(props) {
         <Searchbar
           onTopParticipants={handleTopParticipants}
           onTournamentNameChange={handleTournamentName}
+          onTournamentURLChange={handleTournamentURL}
         />
         {topParticipants.length > 0 && tournamentName.length > 0 && (
           <ChallongeCard
             topParticipants={topParticipants}
             tournamentName={tournamentName}
+            tournamentURL={tournamentURL}
             user={props.user}
             savable={true}
           />

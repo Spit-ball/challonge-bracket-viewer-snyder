@@ -4,17 +4,23 @@ import useLogout from "../../hooks/useLogout";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-const ChallongeCard = ({ topParticipants, tournamentName, user, savable }) => {
+const ChallongeCard = ({
+  topParticipants,
+  tournamentName,
+  tournamentURL,
+  user,
+  savable,
+}) => {
   const router = useRouter();
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
     setSaved(false);
-  }, [topParticipants, tournamentName]); // triggered on re-render; only cares when value provided is updated.
+  }, [topParticipants, tournamentName, tournamentURL]); // triggered on re-render; only cares when value provided is updated.
 
   const handleSave = async () => {
     const userId = user?._doc?.username || user?.username; // check both cases for user object without throwing an error here...should be in either location.
-    const data = { userId, topParticipants, tournamentName };
+    const data = { userId, topParticipants, tournamentName, tournamentURL };
     console.log("Saving data:", data);
 
     try {
@@ -41,6 +47,7 @@ const ChallongeCard = ({ topParticipants, tournamentName, user, savable }) => {
     <div className={styles.card}>
       <h1 className={styles.title}>Top Participants of:</h1>
       <h1 className={styles.subtitle}>{tournamentName}</h1>
+      <h1 className={styles.subtitle}>{tournamentURL}</h1>
       <div className={styles.placement}>
         <ul className={styles.participantList}>
           {topParticipants.map((participant) => (

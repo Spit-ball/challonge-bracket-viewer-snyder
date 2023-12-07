@@ -13,6 +13,10 @@ const challongeSavedInfoSchema = new Schema({
     tournamentName: {
         type: String,
         required: true
+    },
+    tournamentURL: {
+        type: String,
+        required: true
     }
 });
 

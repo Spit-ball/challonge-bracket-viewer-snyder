@@ -3,9 +3,10 @@
 import React, { useState } from 'react';
 import styles from './Searchbar.module.css';
 
-export default function Searchbar({ onTopParticipants, onTournamentNameChange }) {
+export default function Searchbar({ onTopParticipants, onTournamentNameChange, onTournamentURLChange }) {
     const [tournamentCode, setTournamentCode] = useState('');
     const [tournamentName, setTournamentName] = useState('');
+    const [tournamentURL, setTournamentURL] = useState('');
 
     const handleInputChange = (event) => {
         const inputUrl = event.target.value;
@@ -48,6 +49,12 @@ export default function Searchbar({ onTopParticipants, onTournamentNameChange })
 
                 setTournamentName(tournamentData.tournament.name);
                 onTournamentNameChange(tournamentData.tournament.name);
+
+                console.log('Challonge Tournament URL:', tournamentData.tournament.full_challonge_url)
+
+
+                setTournamentURL(tournamentData.tournament.full_challonge_url);
+                onTournamentURLChange(tournamentData.tournament.full_challonge_url);
 
                 const participantsResponse = await fetch(`/api/challongeParticipants?tournamentCode=${tournamentCode}`, {
                     method: 'GET',
